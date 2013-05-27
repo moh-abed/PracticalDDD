@@ -1,0 +1,22 @@
+﻿using System;
+
+namespace Sample.Domain.V2
+{
+    public class StaffMember
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+
+        private StaffMember(Guid id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public static StaffMember Register(string name)
+        {
+            Printer.Print(ConsoleColor.Cyan);
+            return new StaffMember(Guid.NewGuid(), name);
+        }
+    }
+}

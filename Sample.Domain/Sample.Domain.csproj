@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68EF9441-111C-4236-A49D-97B1199AFD08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sample.Domain</RootNamespace>
+    <AssemblyName>Sample.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillingService.cs" />
+    <Compile Include="V3\ICustomerPaymentService.cs" />
+    <Compile Include="NotificationService.cs" />
+    <Compile Include="V3\Specification.cs" />
+    <Compile Include="V4\Appointment.cs" />
+    <Compile Include="V4\CreditCardDetails.cs" />
+    <Compile Include="V4\Customer.cs" />
+    <Compile Include="V4\DomainEvents.cs" />
+    <Compile Include="V4\Email.cs" />
+    <Compile Include="V4\FullName.cs" />
+    <Compile Include="V4\ICustomerPaymentService.cs" />
+    <Compile Include="V4\Job.cs" />
+    <Compile Include="V4\StaffMember.cs" />
+    <Compile Include="V4\TimeSlot.cs" />
+    <Compile Include="CreditValidationService.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="V3\Appointment.cs" />
+    <Compile Include="V3\CreditCardDetails.cs" />
+    <Compile Include="V3\Customer.cs" />
+    <Compile Include="V3\Email.cs" />
+    <Compile Include="V3\FullName.cs" />
+    <Compile Include="V3\Job.cs" />
+    <Compile Include="V3\StaffMember.cs" />
+    <Compile Include="V3\TimeSlot.cs" />
+    <Compile Include="Printer.cs" />
+    <Compile Include="V1\Appointment.cs" />
+    <Compile Include="ICreditVerificationService.cs" />
+    <Compile Include="MyRepository.cs" />
+    <Compile Include="StupidCreditVerificationService.cs" />
+    <Compile Include="V1\Customer.cs" />
+    <Compile Include="V1\Job.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="V1\StaffMember.cs" />
+    <Compile Include="V2\Appointment.cs" />
+    <Compile Include="V2\CreditCardDetails.cs" />
+    <Compile Include="V2\Customer.cs" />
+    <Compile Include="V2\Email.cs" />
+    <Compile Include="V2\FullName.cs" />
+    <Compile Include="V2\Job.cs" />
+    <Compile Include="V2\StaffMember.cs" />
+    <Compile Include="V2\TimeSlot.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
