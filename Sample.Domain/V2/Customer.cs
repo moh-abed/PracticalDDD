@@ -1,4 +1,5 @@
 ﻿using System;
+using Sample.Domain.Shared;
 
 namespace Sample.Domain.V2
 {

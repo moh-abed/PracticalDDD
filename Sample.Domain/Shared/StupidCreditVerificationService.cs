@@ -1,4 +1,4 @@
-﻿namespace Sample.Domain
+﻿namespace Sample.Domain.Shared
 {
     public class StupidCreditVerificationService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sample.Domain;
+using Sample.Domain.Shared;
 using v1 = Sample.Domain.V1;
 using v2 = Sample.Domain.V2;
 using v3 = Sample.Domain.V3;
@@ -18,14 +18,14 @@ namespace Sample
                 PrintHeader("Version 1");
                 Version1();
 
-                //PrintHeader("Version 2");
-                //Version2();
+                PrintHeader("Version 2");
+                Version2();
 
-                //PrintHeader("Version 3");
-                //Version3();
+                PrintHeader("Version 3");
+                Version3();
 
-                //PrintHeader("Version 4");
-                //Version4();
+                PrintHeader("Version 4");
+                Version4();
             }
             catch (Exception exception)
             {

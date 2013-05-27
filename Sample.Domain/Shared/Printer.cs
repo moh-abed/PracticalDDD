@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Sample.Domain
+namespace Sample.Domain.Shared
 {
     public static class Printer
     {

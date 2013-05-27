@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sample.Domain
+namespace Sample.Domain.Shared
 {
     public interface INotificationService
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sample.Domain
+namespace Sample.Domain.Shared
 {
     public static class Data
     {

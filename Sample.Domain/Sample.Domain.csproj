@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillingService.cs" />
+    <Compile Include="Shared\BillingService.cs" />
     <Compile Include="V3\ICustomerPaymentService.cs" />
-    <Compile Include="NotificationService.cs" />
+    <Compile Include="Shared\NotificationService.cs" />
     <Compile Include="V3\Specification.cs" />
     <Compile Include="V4\Appointment.cs" />
     <Compile Include="V4\CreditCardDetails.cs" />
@@ -53,8 +53,8 @@
     <Compile Include="V4\Job.cs" />
     <Compile Include="V4\StaffMember.cs" />
     <Compile Include="V4\TimeSlot.cs" />
-    <Compile Include="CreditValidationService.cs" />
-    <Compile Include="Status.cs" />
+    <Compile Include="Shared\CreditValidationService.cs" />
+    <Compile Include="Shared\Status.cs" />
     <Compile Include="V3\Appointment.cs" />
     <Compile Include="V3\CreditCardDetails.cs" />
     <Compile Include="V3\Customer.cs" />
@@ -63,11 +63,11 @@
     <Compile Include="V3\Job.cs" />
     <Compile Include="V3\StaffMember.cs" />
     <Compile Include="V3\TimeSlot.cs" />
-    <Compile Include="Printer.cs" />
+    <Compile Include="Shared\Printer.cs" />
     <Compile Include="V1\Appointment.cs" />
-    <Compile Include="ICreditVerificationService.cs" />
-    <Compile Include="MyRepository.cs" />
-    <Compile Include="StupidCreditVerificationService.cs" />
+    <Compile Include="Shared\ICreditVerificationService.cs" />
+    <Compile Include="Shared\MyRepository.cs" />
+    <Compile Include="Shared\StupidCreditVerificationService.cs" />
     <Compile Include="V1\Customer.cs" />
     <Compile Include="V1\Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
