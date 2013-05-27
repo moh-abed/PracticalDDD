@@ -32,7 +32,7 @@ namespace Sample.Domain.V4
             }
         }
 
-        private bool ValidateEmail(string value)
+        private static bool ValidateEmail(string value)
         {
             var emailRegex = new Regex(@"[\w-]+(\.?[\w-])*\@[\w-]+(\.[\w-]+)+", RegexOptions.IgnoreCase);
 
@@ -57,6 +57,11 @@ namespace Sample.Domain.V4
                 return null;
 
             return new Email(email.ToLower());
+        }
+
+        public static bool IsValid(string email)
+        {
+            return ValidateEmail(email);
         }
     }
 }

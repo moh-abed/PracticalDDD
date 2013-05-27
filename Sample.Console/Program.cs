@@ -162,6 +162,10 @@ namespace Sample
             customer.UpdateContact("john2@smith.com", "12335679");
             customer.UpdateCrediCard("John Smith", "123 356 789 653");
 
+            string error;
+            if (!customer.TryUpdateContact("bademail", "123456", out error))
+                Printer.Print(error, ConsoleColor.Red);
+
             job.UpdateAppointment(appointment.Id, a => a.AssignStaffMember(jack));
             job.UpdateAppointment(appointment.Id, a => a.Reschedule(DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(2)));
 

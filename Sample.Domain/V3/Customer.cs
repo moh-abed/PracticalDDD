@@ -37,6 +37,22 @@ namespace Sample.Domain.V3
             Phone = phone;
         }
 
+        public bool TryUpdateContact(string email, string phone, out string error)
+        {
+            Printer.Print(ConsoleColor.Cyan);
+            if (!string.IsNullOrEmpty(email) && !Email.IsValid(email))
+            {
+                error = "Email format is invalid.";
+                return false;
+            }
+
+            Email = !string.IsNullOrEmpty(email) ? email : null;
+            Phone = phone;
+
+            error = null;
+            return true;
+        }
+
         public void UpdateCrediCard(string nameOnCard, string cardNumber)
         {
             Printer.Print(ConsoleColor.Cyan);
