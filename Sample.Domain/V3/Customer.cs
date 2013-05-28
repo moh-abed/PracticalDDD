@@ -25,8 +25,8 @@ namespace Sample.Domain.V3
 
         public void Rename(string firstName, string lastName)
         {
-            var newName = new FullName(firstName, lastName);
             Printer.Print(ConsoleColor.Cyan);
+            var newName = new FullName(firstName, lastName);
             Name = newName;
         }
 
@@ -62,6 +62,7 @@ namespace Sample.Domain.V3
         public bool ValidateCreditCard(ICreditValidationService creditValidator)
         {
             Printer.Print(ConsoleColor.Cyan);
+            // do some logic if you want
             return creditValidator.IsValid(CreditCard.NameOnCard, CreditCard.CardNumber);
         }
 

@@ -42,6 +42,7 @@ namespace Sample.Domain.V4
             Printer.Print(ConsoleColor.Cyan);
 
             // do some internal logic regarding payment
+
             DomainEvents.Publish(new CustomerReadyForPayment(this));
         }
 

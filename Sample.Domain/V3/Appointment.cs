@@ -53,6 +53,10 @@ namespace Sample.Domain.V3
         public void InProgress()
         {
             Printer.Print(ConsoleColor.Cyan);
+
+            if (Status == Status.Canceled)
+                throw new Exception("Appointment is cancelled, can not mark it in progress");
+
             Status = Status.InProgress;
         }
         public void Finished()

@@ -8,7 +8,7 @@ namespace Sample.Domain.V2
         public Guid Id { get; set; }
         public FullName Name { get; set; }
         public Email Email { get; set; }
-        public string Phone { get; set; } // what if we want type?
+        public string Phone { get; set; }
         public CreditCardDetails CreditCard { get; set; }
 
         private Customer(Guid id, string firstName, string familyName, string email = null, string phone = null)

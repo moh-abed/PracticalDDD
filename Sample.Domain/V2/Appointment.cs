@@ -35,12 +35,5 @@ namespace Sample.Domain.V2
 
             return new Appointment(Guid.NewGuid(), from, to, member);
         }
-
-        public static Appointment AssignNew(StaffMember member, DateTime? from, DateTime? to)
-        {
-            Printer.Print(ConsoleColor.Cyan);
-
-            return new Appointment(Guid.NewGuid(), from, to, member);
-        }
     }
 }

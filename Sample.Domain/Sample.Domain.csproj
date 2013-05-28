@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Shared\BillingService.cs" />
+    <Compile Include="V1\Model.cs" />
     <Compile Include="V3\ICustomerPaymentService.cs" />
     <Compile Include="Shared\NotificationService.cs" />
     <Compile Include="V3\Specification.cs" />
@@ -64,14 +65,10 @@
     <Compile Include="V3\StaffMember.cs" />
     <Compile Include="V3\TimeSlot.cs" />
     <Compile Include="Shared\Printer.cs" />
-    <Compile Include="V1\Appointment.cs" />
     <Compile Include="Shared\ICreditVerificationService.cs" />
     <Compile Include="Shared\MyRepository.cs" />
     <Compile Include="Shared\StupidCreditVerificationService.cs" />
-    <Compile Include="V1\Customer.cs" />
-    <Compile Include="V1\Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="V1\StaffMember.cs" />
     <Compile Include="V2\Appointment.cs" />
     <Compile Include="V2\CreditCardDetails.cs" />
     <Compile Include="V2\Customer.cs" />

@@ -15,11 +15,11 @@ namespace Sample
         {
             try
             {
-                PrintHeader("Version 1");
-                Version1();
+                //PrintHeader("Version 1");
+                //Version1();
 
-                PrintHeader("Version 2");
-                Version2();
+                //PrintHeader("Version 2");
+                //Version2();
 
                 PrintHeader("Version 3");
                 Version3();
@@ -162,9 +162,14 @@ namespace Sample
             customer.UpdateContact("john2@smith.com", "12335679");
             customer.UpdateCrediCard("John Smith", "123 356 789 653");
 
-            string error;
-            if (!customer.TryUpdateContact("bademail", "123456", out error))
-                Printer.Print(error, ConsoleColor.Red);
+            //string error;
+            //if (!customer.TryUpdateContact("bademail", "123456", out error))
+            //    Printer.Print(error, ConsoleColor.Red);
+
+            //var appointment2 = v3.AppointmentBuilder.New()
+            //                     .Schedule(DateTime.Now, DateTime.Now.AddHours(2))
+            //                     .Assign(tom)
+            //                     .Build();
 
             job.UpdateAppointment(appointment.Id, a => a.AssignStaffMember(jack));
             job.UpdateAppointment(appointment.Id, a => a.Reschedule(DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(2)));
@@ -180,20 +185,17 @@ namespace Sample
                 job.Finished(); 
            
             // Option 1: double dispatch to service
-            //customer.ValidateCreditCard(new CreditValidationService());
+            if(customer.ValidateCreditCard(new CreditValidationService()))
+                customer.Charge(new v3.MyCustomerPaymentService(), new NotificationService());
 
             // Option 2: double dispatch to specifications
-            if (customer.ValidateCreditCard(new v3.ValidCustomerCreditCardSpecification()))
-            {
-                customer.Charge(new v3.MyCustomerPaymentService(), new NotificationService());
-            }
+            //if (customer.ValidateCreditCard(new v3.ValidCustomerCreditCardSpecification()))
+            //    customer.Charge(new v3.MyCustomerPaymentService(), new NotificationService());
 
             // Option 3: use specifications explicitly
-            //var validCreditSpecs = new ValidCustomerCreditCardSpecification();
+            //var validCreditSpecs = new v3.ValidCustomerCreditCardSpecification();
             //if (validCreditSpecs.IsSatisfiedBy(customer))
-            //{
-            //    customer.Pay(new MyCustomerPaymentService(), new NotificationService());
-            //}
+            //    customer.Charge(new v3.MyCustomerPaymentService(), new NotificationService());
         }
 
         private static void Version4()

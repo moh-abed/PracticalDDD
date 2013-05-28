@@ -47,6 +47,10 @@ namespace Sample.Domain.V4
         public void Start()
         {
             Printer.Print(ConsoleColor.Cyan);
+
+            if (Status == Status.Canceled)
+                throw new Exception("Appointment is cancelled, can not mark it in progress");
+
             Status = Status.InProgress;
 
             DomainEvents.Publish(new AppointmentStarted(this));
@@ -54,6 +58,7 @@ namespace Sample.Domain.V4
         public void Finish(string comments = null)
         {
             Printer.Print(ConsoleColor.Cyan);
+
             Status = Status.Finished;
             Comments = comments;
 
