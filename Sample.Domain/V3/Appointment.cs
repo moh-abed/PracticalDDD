@@ -59,10 +59,10 @@ namespace Sample.Domain.V3
 
             Status = Status.InProgress;
         }
-        public void Finished()
+        public void Completed()
         {
             Printer.Print(ConsoleColor.Cyan);
-            Status = Status.Finished;
+            Status = Status.Completed;
         }
         public bool IsInProgress()
         {

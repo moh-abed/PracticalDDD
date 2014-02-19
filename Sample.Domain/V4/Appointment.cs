@@ -59,18 +59,18 @@ namespace Sample.Domain.V4
         {
             Printer.Print(ConsoleColor.Cyan);
 
-            Status = Status.Finished;
+            Status = Status.Completed;
             Comments = comments;
 
-            DomainEvents.Publish(new AppointmentFinished(this));
+            DomainEvents.Publish(new AppointmentCompleted(this));
         }
         public bool IsInProgress()
         {
             return Status == Status.InProgress;
         }
-        public bool IsFinished()
+        public bool IsCompleted()
         {
-            return Status == Status.Finished;
+            return Status == Status.Completed;
         }
 
         public void Cancel()

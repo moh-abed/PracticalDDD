@@ -67,10 +67,10 @@ namespace Sample.Domain.V3
             return Status == Status.InProgress;
         }
 
-        public void Finished()
+        public void Completed()
         {
             Printer.Print(ConsoleColor.Cyan);
-            Status = Status.Finished;
+            Status = Status.Completed;
         }
 
         public void Cancel()

@@ -66,11 +66,11 @@ namespace Sample.Domain.V4
         }
     }
 
-    public class AppointmentFinished
+    public class AppointmentCompleted
     {
         public Appointment Appointment { get; set; }
 
-        public AppointmentFinished(Appointment appointment)
+        public AppointmentCompleted(Appointment appointment)
         {
             Printer.Print(ConsoleColor.Cyan);
 
@@ -113,12 +113,12 @@ namespace Sample.Domain.V4
             //Printer.Print("Job marked as in progress", ConsoleColor.Magenta);
         }
 
-        public void Execute(AppointmentFinished @event)
+        public void Execute(AppointmentCompleted @event)
         {
             Printer.Print(ConsoleColor.Magenta);
 
             var appointmentsOfJob = new MyRepository<Appointment>().FetchAll().Where(a => a.JobId == @event.Appointment.JobId);
-            if (appointmentsOfJob.All(a => a.IsFinished()))
+            if (appointmentsOfJob.All(a => a.IsCompleted()))
             {
                 var jobRepository = new MyRepository<Job>();
                 var job = jobRepository.Fetch(@event.Appointment.JobId);

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,11 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shared\AggregateRoot.cs" />
     <Compile Include="Shared\BillingService.cs" />
+    <Compile Include="Shared\MyEventStore.cs" />
     <Compile Include="V1\Model.cs" />
     <Compile Include="V3\ICustomerPaymentService.cs" />
     <Compile Include="Shared\NotificationService.cs" />
     <Compile Include="V3\Specification.cs" />
+    <Compile Include="V6\Appointment.cs" />
+    <Compile Include="V6\CreditCardDetails.cs" />
+    <Compile Include="V6\Customer.cs" />
+    <Compile Include="V6\DomainEvents.cs" />
+    <Compile Include="V6\Email.cs" />
+    <Compile Include="V6\FullName.cs" />
+    <Compile Include="V6\ICustomerPaymentService.cs" />
+    <Compile Include="V6\Job.cs" />
+    <Compile Include="V6\StaffMember.cs" />
+    <Compile Include="V6\TimeSlot.cs" />
+    <Compile Include="V5\Appointment.cs" />
+    <Compile Include="V5\CreditCardDetails.cs" />
+    <Compile Include="V5\Customer.cs" />
+    <Compile Include="V5\DomainEvents.cs" />
+    <Compile Include="V5\Email.cs" />
+    <Compile Include="V5\FullName.cs" />
+    <Compile Include="V5\ICustomerPaymentService.cs" />
+    <Compile Include="V5\Job.cs" />
+    <Compile Include="V5\StaffMember.cs" />
+    <Compile Include="V5\TimeSlot.cs" />
     <Compile Include="V4\Appointment.cs" />
     <Compile Include="V4\CreditCardDetails.cs" />
     <Compile Include="V4\Customer.cs" />
@@ -77,6 +103,9 @@
     <Compile Include="V2\Job.cs" />
     <Compile Include="V2\StaffMember.cs" />
     <Compile Include="V2\TimeSlot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

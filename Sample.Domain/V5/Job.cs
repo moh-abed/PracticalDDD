@@ -1,7 +1,7 @@
 ﻿using System;
 using Sample.Domain.Shared;
 
-namespace Sample.Domain.V4
+namespace Sample.Domain.V5
 {
     public class Job
     {
