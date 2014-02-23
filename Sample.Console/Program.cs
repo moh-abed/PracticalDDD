@@ -287,7 +287,7 @@ namespace Sample
 
             PrintStep("Scheduling Appointment ...");
 
-            var appointment = v6.Appointment.Schedule(job.Id, DateTime.Now, DateTime.Now.AddHours(2), tom.Id);
+            var appointment = v6.Appointment.Schedule(job, DateTime.Now, DateTime.Now.AddHours(2), tom.Id);
             EventStore<v6.Appointment>().Add(appointment);
 
             PrintStep("Assigning staff member ...");
@@ -296,10 +296,9 @@ namespace Sample
             concurrentAppointment.AssignStaffMember(jack.Id);
             EventStore<v6.Appointment>().Add(concurrentAppointment);
 
-
             PrintStep("Scheduling Another Appointment ...");
 
-            var appointment2 = v6.Appointment.Schedule(job.Id, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(2), tom.Id);
+            var appointment2 = v6.Appointment.Schedule(job, DateTime.Now.AddDays(1), DateTime.Now.AddDays(1).AddHours(2), tom.Id);
             EventStore<v6.Appointment>().Add(appointment2);
 
             PrintStep("Rescheduling Appointment using stale appointment with merge ...");

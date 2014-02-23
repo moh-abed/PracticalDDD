@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sample.Domain.Shared;
 
 namespace Sample.Domain.V6
@@ -14,8 +15,10 @@ namespace Sample.Domain.V6
         private Status Status { get; set; }
         private string Comments { get; set; }
 
+        public Appointment(Guid id, List<DomainEvent> events) : base(id, events) { }
+
         private Appointment(Guid id,
-                           Guid jobId,
+                           Job job,
                            DateTime? from = null,
                            DateTime? to = null,
                            Guid? staffMemberId = null) : base(id)
@@ -23,14 +26,17 @@ namespace Sample.Domain.V6
             if (from == null && to == null && staffMemberId == null)
                 throw new Exception("You have to either select time frame or select staff member");
 
-            Apply(new AppointmentScheduled(UserProfile.Name, id, jobId, staffMemberId, from, to));
+            if(job.IsCanceled())
+                throw new Exception("Job is cancelled");
+
+            Apply(new AppointmentScheduled(UserProfile.Name, id, job.Id, staffMemberId, from, to));
         }
 
-        public static Appointment Schedule(Guid jobId, DateTime from, DateTime to, Guid? memberId = null)
+        public static Appointment Schedule(Job job, DateTime from, DateTime to, Guid? memberId = null)
         {
             Printer.Print(ConsoleColor.Cyan);
 
-            return new Appointment(Guid.NewGuid(), jobId, from, to, memberId);
+            return new Appointment(Guid.NewGuid(), job, from, to, memberId);
         }
 
         public void AssignStaffMember(Guid staffMemberId)
@@ -121,11 +127,11 @@ namespace Sample.Domain.V6
 
         public override bool TryResolveConflicts(IEnumerable<DomainEvent> missingEvents)
         {
-            //if (UncommittedEvents.Any(IsConflictingEvent))
-            //    return false;
+            if (UncommittedEvents.Any(IsConflictingEvent))
+                return false;
 
-            //if (missingEvents.Any(IsConflictingEvent))
-            //    return false;
+            if (missingEvents.Any(IsConflictingEvent))
+                return false;
 
             return true;
         }

@@ -39,7 +39,7 @@ namespace Sample.Domain.Shared
     {
         public Guid Id { get; protected set; }
 
-        internal List<DomainEvent> UncommittedEvents { get; set; }
+        public List<DomainEvent> UncommittedEvents { get; set; }
         internal List<DomainEvent> CommittedEvents { get; set; }
 
         protected AggregateRoot(Guid id)
@@ -53,6 +53,10 @@ namespace Sample.Domain.Shared
             : this(id)
         {
             CommittedEvents = events;
+            foreach (var @event in events)
+            {
+                (this as dynamic).Handle((dynamic)@event);
+            }
         }
 
         protected void Apply(DomainEvent @event)

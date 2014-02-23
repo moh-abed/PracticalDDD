@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
-using System.Threading;
 using Newtonsoft.Json;
 using Sample.Domain.Shared;
 
@@ -12,9 +11,9 @@ namespace Sample.Domain.V6
     [Serializable]
     public class Job : AggregateRoot
     {
-        public Guid CustomerId { get; private set; }
-        public Status Status { get; private set; }
-        public string Location { get; private set; }
+        private Guid CustomerId { get; set; }
+        private Status Status { get; set; }
+        private string Location { get; set; }
 
         private Job(Guid id, Customer customer, string location = null)
             : base(id)
